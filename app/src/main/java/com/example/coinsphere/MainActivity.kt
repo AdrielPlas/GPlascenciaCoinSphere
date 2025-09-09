@@ -22,6 +22,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,30 +51,38 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun HomeScreen(){
+    val Background = Color(0xFF0B1020)
+    val Surface    = Color(0xFF151B2E)
+    val TextMain   = Color(0xFFE8ECF8)
+    val TextDim    = Color(0xFF9AA3B2)
      Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .background(Background)
+            .padding(start = 16.dp, end = 16.dp, top = 20.dp, bottom = 16.dp)
     ) {
         Text(
-            text = "CoinSphere"
+            text = "CoinSphere",
+            color = TextMain
         )
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 8.dp, bottom = 8.dp)
                 .clip(RoundedCornerShape(16.dp))
-                .background(Color.Gray)
+                .background(Surface)
         ) {
             Text(
                 text = "Global Market Cap",
                 modifier = Modifier
-                    .padding(start = 10.dp, top = 10.dp)
+                    .padding(start = 10.dp, top = 10.dp),
+                color = TextDim
             )
             Text(
                 text = "$2.18T",
                 modifier = Modifier
-                    .padding(start = 10.dp, bottom = 10.dp)
+                    .padding(start = 10.dp, bottom = 10.dp),
+                color = TextMain
             )
         }
         Column(
@@ -81,17 +90,19 @@ fun HomeScreen(){
                 .fillMaxWidth()
                 .padding(bottom = 8.dp)
                 .clip(RoundedCornerShape(16.dp))
-                .background(Color.Gray)
+                .background(Surface)
         ) {
             Text(
                 text = "Fear & Greed",
                 modifier = Modifier
-                    .padding(start = 10.dp, top = 10.dp)
+                    .padding(start = 10.dp, top = 10.dp),
+                color = TextDim
             )
             Text(
                 text = "Neutral (54)",
                 modifier = Modifier
-                    .padding(start = 10.dp, bottom = 10.dp)
+                    .padding(start = 10.dp, bottom = 10.dp),
+                color = TextMain
             )
         }
         Column(
@@ -99,17 +110,19 @@ fun HomeScreen(){
                 .fillMaxWidth()
                 .padding(bottom = 8.dp)
                 .clip(RoundedCornerShape(16.dp))
-                .background(Color.Gray)
+                .background(Surface)
         ) {
             Text(
                 text = "Altcoin Season",
                 modifier = Modifier
-                    .padding(start = 10.dp, top = 10.dp)
+                    .padding(start = 10.dp, top = 10.dp),
+                color = TextDim
             )
             Text(
                 text = "No",
                 modifier = Modifier
-                    .padding(start = 10.dp, bottom = 10.dp)
+                    .padding(start = 10.dp, bottom = 10.dp),
+                color = TextMain
             )
         }
         // Seccion de lista
@@ -121,17 +134,20 @@ fun HomeScreen(){
             Text(
                 text = "#",
                 modifier = Modifier
-                    .weight(1f)
+                    .weight(1f),
+                color = TextDim
             )
             Text(
                 text = "Name",
                 modifier = Modifier
-                    .weight(5f)
+                    .weight(5f),
+                color = TextMain
             )
             Text(
                 text = "Price",
                 modifier = Modifier
-                    .weight(4f)
+                    .weight(4f),
+                color = TextMain
             )
         }
         // Listado
@@ -144,7 +160,8 @@ fun HomeScreen(){
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(bottom = 8.dp)
+                            .padding(bottom = 8.dp),
+                        colors = CardDefaults.cardColors(Surface)
                     ) {
                         Row(
                             modifier = Modifier
@@ -154,11 +171,12 @@ fun HomeScreen(){
                             Text(
                                 text = "${coin.number}",
                                 modifier = Modifier
-                                    .weight(1f)
+                                    .weight(1f),
+                                color = TextDim
                             )
                             Box(
                                 modifier = Modifier
-                                    .size(48.dp)
+                                    .size(25.dp)
                                     .clip(CircleShape)
                             ){
                                 AsyncImage(
@@ -172,12 +190,14 @@ fun HomeScreen(){
                             Text(
                                 text = coin.name,
                                 modifier = Modifier
-                                    .weight(2f)
+                                    .weight(2f),
+                                color = TextMain
                             )
                             Text(
                                 text = coin.price,
                                 modifier = Modifier
-                                    .weight(2f)
+                                    .weight(2f),
+                                color = TextMain
                             )
                         }
                     }
