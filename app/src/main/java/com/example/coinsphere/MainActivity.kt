@@ -30,9 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.example.coinsphere.ui.theme.CoinSphereTheme
 
 class MainActivity : ComponentActivity() {
@@ -180,7 +182,10 @@ fun HomeScreen(){
                                     .clip(CircleShape)
                             ){
                                 AsyncImage(
-                                    model = coin.image,
+                                    model = ImageRequest.Builder(LocalContext.current)
+                                        .data(coin.image)
+                                        .crossfade(true)
+                                        .build(),
                                     contentDescription = coin.name,
                                     modifier = Modifier.fillMaxSize(),
                                     contentScale = ContentScale.Crop
