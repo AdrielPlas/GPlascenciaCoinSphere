@@ -8,16 +8,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -52,12 +47,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen() {
     val Background = Color(0xFF0B1020)
-    val Surface    = Color(0xFF151B2E)
-    val TextMain   = Color(0xFFE8ECF8)
-    val TextDim    = Color(0xFF9AA3B2)
-     Column(
+    val Surface = Color(0xFF151B2E)
+    val TextMain = Color(0xFFE8ECF8)
+    val TextDim = Color(0xFF9AA3B2)
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Background)
@@ -143,18 +138,18 @@ fun HomeScreen(){
                 text = "Name",
                 modifier = Modifier
                     .weight(5f),
-                color = TextMain
+                color = TextDim
             )
             Text(
                 text = "Price",
                 modifier = Modifier
                     .weight(4f),
-                color = TextMain
+                color = TextDim
             )
         }
         // Listado
         Column() {
-            LazyColumn (
+            LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
             ) {
@@ -168,7 +163,7 @@ fun HomeScreen(){
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(top = 6.dp, bottom = 6.dp, start = 5.dp)
+                                .padding(top = 6.dp, bottom = 6.dp, start = 10.dp)
                         ) {
                             Text(
                                 text = "${coin.number}",
@@ -179,8 +174,9 @@ fun HomeScreen(){
                             Box(
                                 modifier = Modifier
                                     .size(25.dp)
+                                    .weight(1f)
                                     .clip(CircleShape)
-                            ){
+                            ) {
                                 AsyncImage(
                                     model = ImageRequest.Builder(LocalContext.current)
                                         .data(coin.image)
@@ -191,17 +187,16 @@ fun HomeScreen(){
                                     contentScale = ContentScale.Crop
                                 )
                             }
-
                             Text(
                                 text = coin.name,
                                 modifier = Modifier
-                                    .weight(2f),
+                                    .weight(5f),
                                 color = TextMain
                             )
                             Text(
                                 text = coin.price,
                                 modifier = Modifier
-                                    .weight(2f),
+                                    .weight(5f),
                                 color = TextMain
                             )
                         }
