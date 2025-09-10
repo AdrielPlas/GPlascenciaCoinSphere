@@ -5,11 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -73,7 +75,7 @@ fun HomeScreen() {
             Text(
                 text = "Global Market Cap",
                 modifier = Modifier
-                    .padding(start = 10.dp, top = 10.dp),
+                    .padding(start = 10.dp, top = 10.dp, bottom = 5.dp),
                 color = TextDim
             )
             Text(
@@ -93,7 +95,7 @@ fun HomeScreen() {
             Text(
                 text = "Fear & Greed",
                 modifier = Modifier
-                    .padding(start = 10.dp, top = 10.dp),
+                    .padding(start = 10.dp, top = 10.dp, bottom = 5.dp),
                 color = TextDim
             )
             Text(
@@ -113,7 +115,7 @@ fun HomeScreen() {
             Text(
                 text = "Altcoin Season",
                 modifier = Modifier
-                    .padding(start = 10.dp, top = 10.dp),
+                    .padding(start = 10.dp, top = 10.dp, bottom = 5.dp),
                 color = TextDim
             )
             Text(
@@ -127,7 +129,7 @@ fun HomeScreen() {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 8.dp)
+                .padding(bottom = 18.dp, top = 10.dp)
         ) {
             Text(
                 text = "#",
@@ -158,6 +160,7 @@ fun HomeScreen() {
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .height(50.dp)
                             .padding(bottom = 8.dp),
                         colors = CardDefaults.cardColors(Surface)
                     ) {
