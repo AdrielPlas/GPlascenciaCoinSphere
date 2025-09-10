@@ -21,6 +21,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -56,7 +57,7 @@ fun HomeScreen() {
         modifier = Modifier
             .fillMaxSize()
             .background(Background)
-            .padding(start = 16.dp, end = 16.dp, top = 20.dp, bottom = 16.dp)
+            .padding(start = 16.dp, end = 16.dp, top = 40.dp, bottom = 16.dp)
     ) {
         Text(
             text = "CoinSphere",
@@ -163,7 +164,8 @@ fun HomeScreen() {
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(top = 6.dp, bottom = 6.dp, start = 10.dp)
+                                .padding(top = 6.dp, bottom = 6.dp, start = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
                                 text = "${coin.number}",
@@ -173,7 +175,7 @@ fun HomeScreen() {
                             )
                             Box(
                                 modifier = Modifier
-                                    .size(25.dp)
+                                    .size(28.dp)
                                     .weight(1f)
                                     .clip(CircleShape)
                             ) {
@@ -190,13 +192,14 @@ fun HomeScreen() {
                             Text(
                                 text = coin.name,
                                 modifier = Modifier
-                                    .weight(5f),
+                                    .weight(6f)
+                                    .padding(start = 7.dp),
                                 color = TextMain
                             )
                             Text(
                                 text = coin.price,
                                 modifier = Modifier
-                                    .weight(5f),
+                                    .weight(6f),
                                 color = TextMain
                             )
                         }
